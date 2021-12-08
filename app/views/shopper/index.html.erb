@@ -1,0 +1,38 @@
+<style type="text/css">
+
+    .button {
+        position: relative;
+        display: inline-block;
+        padding: 6px 5px;
+        width: 10%;
+        color: #fff;
+        font-size: 16px;
+        line-height: 20px;
+        text-align: center;
+        letter-spacing: 1px;
+        background: cornflowerblue;
+        border: 0;
+        border-bottom: 2px solid #3160B6;
+        cursor: pointer;
+        transition: all 0.15s ease;
+    }
+</style>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Product Catalog</h1>
+
+  <% @products.each do |product| %>
+    <div class="entry">
+      <%= image_tag(product.image, class: 'list_image') %>
+      <h3><%= product.name %><br/></h3>
+        <p><%= product.description %></p>
+      <div class="price_line">
+        <span><%= product.price %></span>
+      </div>
+      <%= button_to 'Add to Cart', lineitems_path(product_id: product), class: 'button' %>
+    </div>
+  <% end %>
+
+<br>
+

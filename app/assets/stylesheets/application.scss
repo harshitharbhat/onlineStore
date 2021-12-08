@@ -1,0 +1,80 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+#nav-bar {
+    background: darkgreen;
+    padding: 10px;
+    border-bottom: 2px solid;
+    font: 40px/40px "Arial";
+    color: white;
+    text-align: center;
+
+    img {
+        float: left;
+    }
+}
+
+#notice {
+    color: darkred;
+    //border: 2px solid red;
+    padding: 1em;
+    margin-bottom: 2em;
+    //background-color: #f0f0f0;
+    font: caption;
+}
+
+#columns {
+    background: lavender;
+
+    #main {
+        margin-left: 17em;
+        padding: 1em;
+        background: white;
+    }
+
+  .order_form {
+    //width: 380px;
+    margin: 4em auto;
+    padding: 3em 2em 2em 2em;
+    background: #fafafa;
+    border: 1px solid #ebebeb;
+    box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 1px 0px, rgba(0, 0, 0, 0.09804) 0px 1px 2px 0px;
+  }
+
+    #side {
+        float: left;
+        padding: 1em 2em;
+        width: 13em;
+        background: lavender;
+
+            ul {
+                padding: 0;
+                li {
+                    list-style: none;
+                    a {
+                        color: #bfb;
+                        font-size: small;
+                    }
+                }
+            }
+        }
+    }
+
+
+
+
+

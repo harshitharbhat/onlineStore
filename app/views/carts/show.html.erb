@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<h3> Shopping cart</h3>
+
+<table>
+  <% @cart.lineitems.each do |item| %>
+    <tr>
+      <td><%= item.product.name %></td>
+      <td><%= item.quantity %></td>
+      <td><%= item.product.price %></td>
+    </tr>
+  <% end %>
+  <tr>
+    <td colspan="2"> Total Price </td>
+    <td><%= @cart.total_price %></td>
+  </tr>
+</table>
+
+
+<%= button_to "Empty Cart", @cart, method: :delete, data: {confirm: 'are you sure you want to empty the cart?'} %>

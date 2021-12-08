@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Shop</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body class="<%= controller.controller_name %>">
+    <div id="nav-bar">
+      <%= @page_title || "Product Catalog" %>
+    </div>
+
+    <div id="columns">
+      <div id="side">
+        <div id = "cart">
+          <%= link_to 'Admin login',   login_url  ,style: "color: green;" %>
+          <% if session[:user_id] %>
+            <ul>
+              <li><%= link_to 'Orders',   orders_path  ,style: "color: green;" %></li>
+              <li><%= link_to 'Products', products_path , style: "color: green;"%></li>
+              <li><%= link_to 'Users',    users_path , style: "color: green;"   %></li>
+            </ul>
+            <%= link_to 'Logout', logout_path, method: :delete %>
+          <% end %>
+          <div>
+            <% if !@cart.nil? %>
+            <%= render @cart %>
+              <% end %>
+          </div>
+        </div>
+
+      </div>
+      <div id="main">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>
