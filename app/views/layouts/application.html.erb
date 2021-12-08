@@ -12,13 +12,15 @@
 
   <body class="<%= controller.controller_name %>">
     <div id="nav-bar">
-      <%= @page_title || "Product Catalog" %>
+      <%= @page_title || "Arts and Crafts store" %>
     </div>
+
 
     <div id="columns">
       <div id="side">
         <div id = "cart">
-          <%= link_to 'Admin login',   login_url  ,style: "color: green;" %>
+          <%= link_to 'Admin login',   login_url  ,style: "color: green;" %><br/>
+          <%= link_to 'Home',   shopper_url  ,style: "color: green;" %>
           <% if session[:user_id] %>
             <ul>
               <li><%= link_to 'Orders',   orders_path  ,style: "color: green;" %></li>
@@ -36,6 +38,14 @@
 
       </div>
       <div id="main">
+        <div>
+          <%= form_tag(search_path, :method => "get") do %>
+            <div>
+              <%= search_field_tag :search, params[:search], placeholder: "Name" %>
+              <%= button_tag "Search for products ", :name => nil %>
+            </div>
+          <% end %>
+        </div>
         <%= yield %>
       </div>
     </div>

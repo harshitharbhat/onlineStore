@@ -10,5 +10,7 @@ Rails.application.routes.draw do
   get 'shopper/index'
   root "shopper#index", as:'shopper' # root = get '/'
   resources :products
+  get '/search', to: "shopper#search"
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

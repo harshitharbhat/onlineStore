@@ -1,4 +1,30 @@
-<%= form_with(model: order) do |form| %>
+<style type="text/css">
+    .order_form {
+        margin: 4em auto;
+        padding: 3em 2em 2em 2em;
+        background: #fafafa;
+        border: 1px solid #ebebeb;
+        box-shadow: rgba(0,0,0,0.14902) 0px 1px 1px 0px,rgba(0,0,0,0.09804) 0px 1px 2px 0px;
+    }
+    .button {
+        position: relative;
+        display: inline-block;
+        padding: 6px 5px;
+        width: 10%;
+        color: #fff;
+        font-size: 16px;
+        line-height: 20px;
+        text-align: center;
+        letter-spacing: 1px;
+        background: cornflowerblue;
+        border: 0;
+        border-bottom: 2px solid #3160B6;
+        cursor: pointer;
+        transition: all 0.15s ease;
+    }
+</style>
+<div class="order_form">
+  <%= form_with(model: order) do |form| %>
   <% if order.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
@@ -28,10 +54,11 @@
 
   <div class="field">
     <%= form.label :paytype %>
-    <%= form.text_field :paytype %>
+    <%= form.select :paytype, Order::PAYMENT_TYPES, prompt: "Select a payment type" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit :class => "button" %>
   </div>
 <% end %>
+</div>
